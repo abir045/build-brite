@@ -26,7 +26,7 @@ const aboutData: AboutData = {
 
 const WhoWeAre: React.FC = () => {
   return (
-    <section className="container-custom py-[100px] w-full">
+    <section className="container-custom py-[100px] w-full" data-theme="light">
       <div className="flex flex-col items-start lg:flex-row md:justify-between md:items-baseline w-full">
         {/* Left column */}
         <div className="flex flex-col gap-4 md:gap-6 max-w-[548px]">

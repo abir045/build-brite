@@ -7,7 +7,8 @@ type BodyTextVariant =
   | "body-sm-bold"
   | "body-sm"
   | "caption"
-  | "navigation";
+  | "navigation"
+  | "mapTitle";
 
 interface BodyTextProps {
   variant?: BodyTextVariant;
@@ -22,8 +23,9 @@ const variantStyles: Record<BodyTextVariant, string> = {
   "body-sm-bold":
     "text-sm font-semibold md:font-bold leading-[150%] md:leading-[130%] ", // 14px
   "body-sm": "text-sm font-medium leading-[150%]", // 14px
-  caption: "text-xs font-medium leading-[150%] md:leading-[120%]", // 12px
+  caption: "text-xs font-medium leading-[120%]", // 12px
   navigation: "text-xs font-semibold leading-[150%] uppercase", // 12px
+  mapTitle: "text-sm font-bold leading-[120%] md:leading-[130%]",
 };
 
 export const BodyText: React.FC<BodyTextProps> = ({

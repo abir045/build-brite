@@ -24,7 +24,7 @@ const stats = [
 
 const Hero = () => {
   return (
-    <section className="relative h-[90dvh] flex flex-col">
+    <section className="relative h-[90dvh] flex flex-col" data-theme="dark">
       <Image
         src="/home/hero.png"
         fill

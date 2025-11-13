@@ -49,7 +49,7 @@ const servicesData: Service[] = [
 
 const Services: React.FC = () => {
   return (
-    <section className="bg-off-white">
+    <section className="bg-off-white" data-theme="light">
       <div className="container-custom flex flex-col py-[60px] md:py-[100px]">
         <div className="flex items-center justify-center gap-2">
           <Image src="/home/green-circle.svg" width={8} height={8} alt="icon" />

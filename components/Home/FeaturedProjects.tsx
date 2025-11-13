@@ -64,7 +64,7 @@ const FeaturedProjects: React.FC = () => {
   }, []);
 
   return (
-    <section className="bg-dark1">
+    <section className="bg-dark1" data-theme="dark">
       <div className="container-custom py-[60px] lg:py-[100px] flex flex-col">
         {/* Header */}
         <div className="relative">
@@ -143,10 +143,10 @@ const FeaturedProjects: React.FC = () => {
               const getSlideWidth = () => {
                 if (hoveredIndex !== null) {
                   if (hoveredIndex === index)
-                    return isMobile ? "381px" : "800px"; // expanded
+                    return isMobile ? "381px" : "896px"; // expanded
                   return "224px"; // collapsed
                 }
-                return index === 0 ? (isMobile ? "281px" : "800px") : "224px";
+                return index === 0 ? (isMobile ? "281px" : "896px") : "224px";
               };
 
               const isExpanded =
@@ -159,7 +159,8 @@ const FeaturedProjects: React.FC = () => {
                   key={project.id}
                   style={{
                     width: getSlideWidth(),
-                    transition: "width 0.9s cubic-bezier(0.4, 0.0, 0.2, 1)",
+                    transition: "width 0.15s cubic-bezier(0.45, 0, 0.2, 1)",
+
                     // transition: "width 1.6s cubic-bezier(0.25, 0.1, 0.25, 1)",
                   }}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -180,66 +181,6 @@ const FeaturedProjects: React.FC = () => {
   );
 };
 
-// Project Card Component
-// const ProjectCard: React.FC<{ project: Project; isExpanded?: boolean }> = ({
-//   project,
-//   isExpanded = false,
-// }) => {
-//   if (!isExpanded) {
-//     // Collapsed card - image with title overlay at bottom
-//     return (
-//       <div className="relative w-full h-[450px] bg-[#0E141B] text-white rounded-2xl overflow-hidden">
-//         <Image
-//           src={project.image}
-//           alt={project.title}
-//           fill
-//           className="object-cover"
-//           priority
-//         />
-//         {/* Gradient overlay at bottom */}
-//         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-//         {/* Title at bottom */}
-//         <div className="absolute bottom-0 left-0 right-0 p-6">
-//           <h3 className="text-lg font-semibold tracking-wide leading-tight">
-//             {project.title}
-//           </h3>
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   // Expanded card - image on left, content on right
-//   return (
-//     <div className="flex flex-col md:flex-row w-full h-[450px] bg-[#0E141B] text-white  overflow-hidden">
-//       {/* Left Image Section */}
-//       <div className="relative md:w-1/2 h-[450px] shrink-0">
-//         <Image
-//           src={project.image}
-//           alt={project.title}
-//           fill
-//           className="object-cover"
-//           priority
-//         />
-//       </div>
-
-//       {/* Right Content Section */}
-//       <div className="md:w-1/2 flex flex-col justify-center p-6 space-y-3">
-//         <h3 className="text-lg font-semibold tracking-wide">{project.title}</h3>
-
-//         <div className="flex items-center text-sm text-gray-300">
-//           <MapPin className="w-4 h-4 text-green-500 mr-1" />
-//           <span>{project.location}</span>
-//         </div>
-
-//         <p className="text-gray-400 text-sm leading-relaxed">
-//           {project.description}
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
-
 const ProjectCard: React.FC<{ project: Project; isExpanded?: boolean }> = ({
   project,
   isExpanded = false,
@@ -247,7 +188,7 @@ const ProjectCard: React.FC<{ project: Project; isExpanded?: boolean }> = ({
   if (!isExpanded) {
     // Collapsed card (image only with title)
     return (
-      <div className="relative w-full h-[450px] bg-[#0E141B] text-white rounded-2xl overflow-hidden">
+      <div className="relative w-full h-[450px] bg-dark1 text-white rounded-2xl overflow-hidden">
         <Image
           src={project.image}
           alt={project.title}
@@ -255,7 +196,7 @@ const ProjectCard: React.FC<{ project: Project; isExpanded?: boolean }> = ({
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" /> */}
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <h3 className="text-lg font-semibold tracking-wide leading-tight">
             {project.title}
@@ -280,12 +221,38 @@ const ProjectCard: React.FC<{ project: Project; isExpanded?: boolean }> = ({
       </div>
 
       {/* Content Section */}
-      <div
+      {/* <div
         className="w-full md:w-1/2 flex flex-col justify-center p-5 lg:px-10  space-y-3"
         style={{
-          transition: "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
           opacity: isExpanded ? 1 : 0,
-          transform: isExpanded ? "translateX(0)" : "translateX(20px)",
+          transition: "opacity 0.3s ease-in-out 0.6s", // Start fading in after width expands
+          pointerEvents: isExpanded ? "auto" : "none",
+          visibility: isExpanded ? "visible" : "hidden",
+        }}
+      >
+        <LargeText variant="large-28-caps" className="">
+          {project.title}
+        </LargeText>
+
+        <div className="flex items-center mt-4 lg:mt-6">
+          <MapPin className="w-4 h-4 text-primary mr-1" />
+          <BodyText variant="body-sm" className="text-white/60">
+            {project.location}
+          </BodyText>
+        </div>
+
+        <BodyText variant="body" className="text-white/60 mt-8 lg:mt-12">
+          {project.description}
+        </BodyText>
+      </div> */}
+
+      {/* Content Section */}
+      <div
+        className={`w-full md:w-1/2 flex flex-col justify-center p-5 lg:px-10 space-y-3 transition-all duration-500 ease-in-out
+        `}
+        style={{
+          transition: "opacity 0.45s ease 0.25s, transform 0.45s ease 0.25s",
+          transform: isExpanded ? "translateX(0)" : "translateX(-10px)",
         }}
       >
         <LargeText variant="large-28-caps" className="">

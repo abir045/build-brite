@@ -10,7 +10,7 @@ import BodyText from "../globals/typography/BodyText";
 export default function Footer() {
   return (
     <>
-      <footer className="bg-dark1 px-5 lg:px-10 ">
+      <footer className="bg-dark1 px-5 lg:px-10 " data-theme="dark">
         {/* outer div */}
         <div className="flex flex-col lg:flex-row items-start justify-between pt-15 lg:pt-[100px] ">
           {/* 1st div */}

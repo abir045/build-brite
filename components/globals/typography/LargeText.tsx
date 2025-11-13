@@ -20,9 +20,10 @@ interface LargeTextProps {
 }
 
 const variantStyles: Record<LargeTextVariant, string> = {
-  "large-32-reg": "text-[32px] leading-[120%] tracking-[-1px] font-normal",
+  "large-32-reg":
+    "text-[24px] md:text-[32px] leading-[120%] tracking-[-1px] font-normal",
   "large-32-playfair":
-    "text-[32px] leading-[120%] tracking-[-1px] font-normal italic",
+    "ext-[24px] md:text-[32px] leading-[120%] tracking-[-1px] font-normal italic",
   "large-28-caps":
     "text-[20px] md:text-[28px] leading-[100%] tracking-[-1px] font-semibold uppercase",
   "large-28-semibold":
