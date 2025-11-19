@@ -394,73 +394,73 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  // useEffect(() => {
-  //   let lastTheme: string | null = null;
-  //   let switchTimeout: NodeJS.Timeout | null = null;
-  //   let scrollTimeout: NodeJS.Timeout | null = null;
-  //   let lastRatio = 0;
+  useEffect(() => {
+    let lastTheme: string | null = null;
+    let switchTimeout: NodeJS.Timeout | null = null;
+    let scrollTimeout: NodeJS.Timeout | null = null;
+    let lastRatio = 0;
 
-  //   const applyTheme = (theme: string) => {
-  //     if (theme !== lastTheme) {
-  //       lastTheme = theme;
-  //       setIsDark(theme === "light");
-  //       console.log(`🎨 Theme applied: ${theme}`);
-  //     }
-  //   };
+    const applyTheme = (theme: string) => {
+      if (theme !== lastTheme) {
+        lastTheme = theme;
+        setIsDark(theme === "light");
+        console.log(`🎨 Theme applied: ${theme}`);
+      }
+    };
 
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       // Get the most visible section
-  //       const mostVisible = entries.reduce((prev, curr) =>
-  //         curr.intersectionRatio > prev.intersectionRatio ? curr : prev
-  //       );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Get the most visible section
+        const mostVisible = entries.reduce((prev, curr) =>
+          curr.intersectionRatio > prev.intersectionRatio ? curr : prev
+        );
 
-  //       const theme = mostVisible.target.getAttribute("data-theme");
-  //       const ratio = mostVisible.intersectionRatio;
+        const theme = mostVisible.target.getAttribute("data-theme");
+        const ratio = mostVisible.intersectionRatio;
 
-  //       if (!theme || !mostVisible.isIntersecting) return;
+        if (!theme || !mostVisible.isIntersecting) return;
 
-  //       // ✅ Only trigger if visibility improved significantly
-  //       if (ratio - lastRatio > 0.1 || lastTheme !== theme) {
-  //         if (switchTimeout) clearTimeout(switchTimeout);
-  //         switchTimeout = setTimeout(() => applyTheme(theme), 80);
-  //         lastRatio = ratio;
-  //       }
-  //     },
-  //     {
-  //       threshold: Array.from({ length: 21 }, (_, i) => i / 20),
-  //       rootMargin: "150px 0px -150px 0px",
-  //     }
-  //   );
+        // ✅ Only trigger if visibility improved significantly
+        if (ratio - lastRatio > 0.1 || lastTheme !== theme) {
+          if (switchTimeout) clearTimeout(switchTimeout);
+          switchTimeout = setTimeout(() => applyTheme(theme), 80);
+          lastRatio = ratio;
+        }
+      },
+      {
+        threshold: Array.from({ length: 21 }, (_, i) => i / 20),
+        rootMargin: "150px 0px -150px 0px",
+      }
+    );
 
-  //   const sections = document.querySelectorAll("[data-theme]");
-  //   sections.forEach((section) => observer.observe(section));
+    const sections = document.querySelectorAll("[data-theme]");
+    sections.forEach((section) => observer.observe(section));
 
-  //   // 🩵 Safety correction after scroll ends
-  //   const handleScroll = () => {
-  //     if (scrollTimeout) clearTimeout(scrollTimeout);
-  //     scrollTimeout = setTimeout(() => {
-  //       const mid = window.innerHeight / 2;
-  //       for (const section of sections) {
-  //         const rect = section.getBoundingClientRect();
-  //         if (rect.top <= mid && rect.bottom >= mid) {
-  //           const theme = section.getAttribute("data-theme");
-  //           if (theme) applyTheme(theme);
-  //           break;
-  //         }
-  //       }
-  //     }, 180);
-  //   };
+    // 🩵 Safety correction after scroll ends
+    const handleScroll = () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const mid = window.innerHeight / 2;
+        for (const section of sections) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= mid && rect.bottom >= mid) {
+            const theme = section.getAttribute("data-theme");
+            if (theme) applyTheme(theme);
+            break;
+          }
+        }
+      }, 180);
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-  //   return () => {
-  //     observer.disconnect();
-  //     window.removeEventListener("scroll", handleScroll);
-  //     if (switchTimeout) clearTimeout(switchTimeout);
-  //     if (scrollTimeout) clearTimeout(scrollTimeout);
-  //   };
-  // }, []);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+      if (switchTimeout) clearTimeout(switchTimeout);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+    };
+  }, []);
 
   return (
     <>
@@ -474,9 +474,10 @@ export default function Header() {
               alt="logo"
               width={20}
               height={20}
+              className="mix-blend-difference"
             />
             <span
-              className={`text-xl lg:text-[25px] font-semibold leading-[150%] tracking-[-0.31px] lg:tracking-[-0.39px] transition-colors duration-300 ${
+              className={`mix-blend-difference text-xl lg:text-[25px] font-semibold leading-[150%] tracking-[-0.31px] lg:tracking-[-0.39px] transition-colors duration-300 ${
                 isDark ? "text-[#0A181B]" : "text-white"
               }`}
             >

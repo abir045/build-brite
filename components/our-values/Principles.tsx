@@ -65,9 +65,8 @@ export default function Principles() {
   return (
     <section className="bg-white">
       <div className="container-custom py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-2">
           {coreValuesData.map((value, index) => {
-            const IconComponent = value.icon;
             return (
               <div
                 key={value.id}
@@ -87,14 +86,14 @@ export default function Principles() {
                     className={` ${
                       index === 0
                         ? "text-primary mt-[103.5px] text-[24px] md:text-[32px] leading-[120%] tracking-[-1px] font-normal"
-                        : "text-white mt-0"
+                        : "text-white "
                     }`}
                   >
                     {value.title}
                   </LargeText>
                   <BodyText
                     variant="body-sm"
-                    className={`text-white/70 ${
+                    className={`text-white/70 pb-8 md:pb-[111px] ${
                       index === 0 ? "max-w-[400px]" : ""
                     }`}
                   >
