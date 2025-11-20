@@ -2,15 +2,15 @@ import React from "react";
 import SectionHeader from "../globals/section-headers/SectionHeader";
 import Heading from "../globals/typography/Heading";
 
-const ProjectsHeader = () => {
+const CaseStudiesHeader = () => {
   return (
-    <SectionHeader caption="Our projects">
-      Discover our portfolio of landmark projects that {""}
+    <SectionHeader caption="Case studies">
+      Dive deep into our most {""}
       <Heading variant="playfair" level="span" className="inline">
-        shape skylines and communities worldwide{" "}
+        impactful innovations and success stories{" "}
       </Heading>
     </SectionHeader>
   );
 };
 
-export default ProjectsHeader;
+export default CaseStudiesHeader;

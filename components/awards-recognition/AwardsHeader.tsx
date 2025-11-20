@@ -2,15 +2,15 @@ import React from "react";
 import SectionHeader from "../globals/section-headers/SectionHeader";
 import Heading from "../globals/typography/Heading";
 
-const ProjectsHeader = () => {
+const AwardsHeader: React.FC = () => {
   return (
-    <SectionHeader caption="Our projects">
-      Discover our portfolio of landmark projects that {""}
+    <SectionHeader caption="Awards & Recognition">
+      Our commitment to excellence has earned {""}
       <Heading variant="playfair" level="span" className="inline">
-        shape skylines and communities worldwide{" "}
+        recognition from leading industry organizations{" "}
       </Heading>
     </SectionHeader>
   );
 };
 
-export default ProjectsHeader;
+export default AwardsHeader;
