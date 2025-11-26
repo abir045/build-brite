@@ -58,9 +58,12 @@ const Hero = () => {
           <div className="">
             <button
               // variant="ghost"
-              className="flex items-center gap-[34px] px-4 py-2.5 border border-white/15 rounded"
+              className="flex items-center cursor-pointer gap-[34px] text-primary group hover:bg-primary hover:text-dark1 transition-colors duration-300 px-4 py-2.5 border border-white/15 rounded"
             >
-              <BodyText variant="navigation" className="text-primary">
+              <BodyText
+                variant="navigation"
+                // className="text-primary"
+              >
                 View our projects
               </BodyText>
               <Image
@@ -68,19 +71,20 @@ const Hero = () => {
                 alt="right icon"
                 width={20}
                 height={20}
+                className="group-hover:invert"
               />
             </button>
           </div>
 
-          <div className="flex items-start gap-20">
+          <div className="flex items-start justify-between md:gap-20 max-w-[362px] md:max-w-[464px]">
             {stats.map((stat) => (
-              <div key={stat.id} className="flex flex-col gap-2 w-full ">
+              <div key={stat.id} className="flex flex-col gap-2">
                 <Heading variant="jakarta" level="h4" className="text-primary">
                   {stat.number}
                 </Heading>
                 <BodyText
                   variant="body-sm"
-                  className="text-xs md:text-sm text-white/70 "
+                  className="text-xs md:text-sm text-white/70  w-full"
                 >
                   {stat.label}
                 </BodyText>

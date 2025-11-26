@@ -28,10 +28,11 @@ const variantStyles: Record<LargeTextVariant, string> = {
     "text-[20px] md:text-[28px] leading-[100%] tracking-[-1px] font-semibold uppercase",
   "large-28-semibold":
     "text-[20px] md:text-[28px] leading-[120%] tracking-0 md:tracking-[-1px] font-semibold",
-  "large-28-reg": "text-[28px] leading-[120%] tracking-[-1px] font-normal",
+  "large-28-reg":
+    "text-[20px] md:text-[28px] leading-[120%] tracking-[-1px] font-normal",
   "large-24-reg": "text-[24px] leading-[120%] tracking-[-1px] font-normal",
   "large-20-bold":
-    "text-[20px] leading-[150%] md:leading-[140%] tracking-[0px] font-bold",
+    "text-base md:text-[20px] leading-[150%] md:leading-[140%] tracking-[0px] font-bold",
   "large-20-caps":
     "text-[20px] leading-[110%] tracking-[-1px] font-semibold uppercase",
   "large-18-semibold":

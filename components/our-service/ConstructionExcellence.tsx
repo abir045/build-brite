@@ -4,6 +4,7 @@ import BodyText from "../globals/typography/BodyText";
 import { div } from "framer-motion/client";
 import Image from "next/image";
 import LargeText from "../globals/typography/LargeText";
+import Link from "next/link";
 
 interface ServiceItem {
   id: number;
@@ -23,7 +24,7 @@ const servicesData: ServiceItem[] = [
     title: "Preconstruction Services",
     description:
       "From initial feasibility studies to detailed cost estimates and scheduling, our preconstruction team ensures your project starts on solid ground, mitigating risks and setting clear expectations.",
-    link: "LEARN MORE",
+    link: "/service/preconstruction",
     icon: "/services/services.svg",
   },
   {
@@ -33,7 +34,7 @@ const servicesData: ServiceItem[] = [
     title: "Construction Management",
     description:
       "Our experienced project managers oversee every detail, from mobilization to final walkthrough, ensuring quality craftsmanship, schedule adherence, and transparent communication throughout.",
-    link: "LEARN MORE",
+    link: "/service/construction-management",
     icon: "/services/cm.svg",
   },
   {
@@ -43,7 +44,7 @@ const servicesData: ServiceItem[] = [
     title: "Design-Build",
     description:
       "Streamline your project with our integrated design-build approach, where our in-house design and construction teams work in unison to deliver innovative solutions on time and within budget.",
-    link: "LEARN MORE",
+    link: "/service/design-build",
     icon: "/services/db.svg",
   },
   {
@@ -53,7 +54,7 @@ const servicesData: ServiceItem[] = [
     title: "Sustainability & Innovation",
     description:
       "Leading the industry in eco-friendly building practices and emerging technologies, we integrate sustainable materials and renewable energy systems into every project, creating environmentally responsible spaces.",
-    link: "LEARN MORE",
+    link: "/service/sustainability-innovation",
     icon: "/services/leaf.svg",
   },
 ];
@@ -104,15 +105,18 @@ const ConstructionExcellence: React.FC = () => {
                 {item.description}
               </BodyText>
 
-              <button className="px-4 py-2.5 flex items-center  rounded w-full h-12 md:max-w-[210px] justify-between md:gap-[81px] mt-10 bg-primary">
-                <BodyText variant="navigation">{item.link} </BodyText>{" "}
-                <Image
-                  src="/home/news/green-right-arrow.svg"
-                  alt="right-icon"
-                  width={20}
-                  height={20}
-                />
-              </button>
+              <Link href={item.link}>
+                <button className="px-4 py-2.5 flex items-center  rounded w-full h-12 md:max-w-[210px] justify-between md:gap-[81px] text-dark1 mt-10 bg-primary hover:text-primary hover:bg-dark1 transition-colors duration-300 cursor-pointer group">
+                  <BodyText variant="navigation">Learn More </BodyText>{" "}
+                  <Image
+                    src="/home/news/green-right-arrow.svg"
+                    alt="right-icon"
+                    width={20}
+                    height={20}
+                    className=""
+                  />
+                </button>
+              </Link>
             </div>
           ))}
         </div>

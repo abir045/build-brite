@@ -69,8 +69,11 @@ const WhoWeAre: React.FC = () => {
 
           {/* desktop button hidden on mb */}
 
-          <button className="self-start hidden md:flex gap-14 px-4 py-2.5 rounded bg-primary hover:bg-primary  mt-[52px]">
-            <BodyText variant="navigation" className="text-dark1">
+          <button className="self-start hidden md:flex gap-14 px-4 py-2.5 rounded text-dark1 bg-primary hover:bg-dark1 hover:text-primary transition-colors duration-300 cursor-pointer group  mt-[52px]">
+            <BodyText
+              variant="navigation"
+              // className="text-dark1"
+            >
               {aboutData.ctaText}
             </BodyText>
 
@@ -79,6 +82,7 @@ const WhoWeAre: React.FC = () => {
               width={20}
               height={20}
               alt="icon"
+              className="group-hover:invert"
             />
           </button>
         </div>
@@ -101,8 +105,11 @@ const WhoWeAre: React.FC = () => {
         </div>
 
         {/* hidden button on md screens */}
-        <button className="self-start flex items-center md:hidden gap-14 px-4 py-2.5 rounded bg-primary hover:bg-primary  mt-8">
-          <BodyText variant="navigation" className="text-dark1">
+        <button className="self-start flex items-center md:hidden gap-14 px-4 py-2.5 rounded bg-primary text-dark1 cursor-pointer hover:bg-dark1 hover:text-primary transition-colors duration-300 group  mt-8">
+          <BodyText
+            variant="navigation"
+            // className="text-dark1"
+          >
             {aboutData.ctaText}
           </BodyText>
 
@@ -111,6 +118,7 @@ const WhoWeAre: React.FC = () => {
             width={20}
             height={20}
             alt="icon"
+            className="group-hover:invert"
           />
         </button>
       </div>

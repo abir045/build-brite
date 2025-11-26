@@ -35,7 +35,7 @@ export const statsData: StatItem[] = [
 
 const Recognition: React.FC = () => {
   return (
-    <section className="bg-light-blue">
+    <section className="bg-light-blue" data-theme="light">
       <div className="container-custom flex flex-col  py-[60px] md:py-[100px]">
         <div className="flex flex-col items-center gap-4 md:gap-6">
           <SectionCaption

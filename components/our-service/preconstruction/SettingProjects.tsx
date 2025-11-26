@@ -33,7 +33,7 @@ const SettingProjects: React.FC = () => {
   return (
     <section className="bg-white">
       <div className="py-[60px] md:py-[100px] flex flex-col container-custom">
-        <div className="flex flex-col gap-8 items-center md:flex-row md:justify-between">
+        <div className="flex flex-col gap-8 items-center lg:flex-row lg:justify-between">
           {/* left */}
           <div className="flex flex-col gap-8">
             <div className="max-w-[526px]">

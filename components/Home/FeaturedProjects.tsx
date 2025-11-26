@@ -503,16 +503,16 @@
 //                   key={project.id}
 //                   style={{
 //                     width: getSlideWidth(),
-//                     transition: "width 0.3s cubic-bezier(0.45, 0, 0.2, 1)",
+//                     // transition: "width 0.3s cubic-bezier(0.45, 0, 0.2, 1)",
 
 //                     // width: isExpanded
 //                     //   ? isMobile
 //                     //     ? "381px"
 //                     //     : "896px"
 //                     //   : "224px",
-//                     // transform: `scaleX(${isExpanded ? 1 : 0.25})`, // 224/896 ≈ 0.25
-//                     // transformOrigin: "left",
-//                     // transition: "transform 0.3s cubic-bezier(0.45, 0, 0.2, 1)",
+//                     transform: `scaleX(${isExpanded ? 1 : 0.25})`, // 224/896 ≈ 0.25
+//                     transformOrigin: "left",
+//                     transition: "transform 0.3s cubic-bezier(0.45, 0, 0.2, 1)",
 //                   }}
 //                   onMouseEnter={() => handleCardHover(index)}
 //                   onMouseLeave={handleCardLeave}
@@ -570,14 +570,14 @@
 //       <div
 //         className="w-full  md:w-1/2 h-[195px] md:h-full flex flex-col justify-center p-5 lg:px-10 space-y-3 overflow-hidden"
 //         style={{
-//           animation: isExpanded
-//             ? "fadeInContent 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards"
-//             : "fadeOutContent 0.45s cubic-bezier(0.4, 0, 1, 1) forwards",
+//           // animation: isExpanded
+//           //   ? "fadeInContent 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards"
+//           //   : "fadeOutContent 0.15s cubic-bezier(0.4, 0, 1, 1) forwards",
 //           opacity: isExpanded ? 1 : 0,
 //           visibility: isExpanded ? "visible" : "hidden",
-//           // transition: isExpanded
-//           //   ? "opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, visibility 0s 0s"
-//           //   : "opacity 0.15s cubic-bezier(0.4, 0, 1, 1), visibility 0s 0.2s",
+//           transition: isExpanded
+//             ? "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, visibility 0s 0s"
+//             : "opacity 0.3s cubic-bezier(0.4, 0, 1, 1), visibility 0s 0.2s",
 //         }}
 //       >
 //         <LargeText variant="large-28-caps" className="">
@@ -722,13 +722,29 @@ const FeaturedProjects: React.FC = () => {
       const isExpanded = expandedIndex === index;
       const targetWidth = isExpanded ? (isMobile ? 381 : 896) : 224;
 
+      const content = slide.querySelector(".project-content");
+
       gsap.to(slide, {
         width: targetWidth,
-        duration: 0.4,
-        ease: "cubic-bezier(0.45, 0, 0.2, 1)",
+        duration: 0.6,
+        // ease: "cubic-bezier(0.45, 0, 0.2, 1)",
+        ease: "power2.inOut",
+        // ease: "back.out(1.2)",
       });
+
+      if (content) {
+        gsap.to(content, {
+          opacity: isExpanded ? 1 : 0,
+          duration: 0.3,
+          delay: isExpanded ? 0.4 : 0, // Delay appearance until width is almost done
+          ease: "power2.out",
+        });
+      }
     });
   }, [expandedIndex, isMobile]);
+
+  //gsap with transform translate
+  // console.log(slideRefs);
 
   const handleCardHover = (index: number) => {
     if (hoverTimeoutRef.current) {
@@ -746,6 +762,8 @@ const FeaturedProjects: React.FC = () => {
       setExpandedIndex(0);
     }, 100);
   };
+
+  // console.log(slideRefs);
 
   return (
     <section className="bg-dark1" data-theme="dark">
@@ -832,14 +850,17 @@ const FeaturedProjects: React.FC = () => {
               return (
                 <SwiperSlide
                   key={project.id}
-                  ref={(el) => (slideRefs.current[index] = el)}
+                  // ref={(el) => void (slideRefs.current[index] = el)}
                   style={{
                     width: getSlideWidth(),
                   }}
                   onMouseEnter={() => handleCardHover(index)}
                   onMouseLeave={handleCardLeave}
                 >
-                  <ProjectCard project={project} isExpanded={isExpanded} />
+                  {/* <ProjectCard project={project} isExpanded={isExpanded} /> */}
+                  <div ref={(el) => void (slideRefs.current[index] = el)}>
+                    <ProjectCard project={project} isExpanded={isExpanded} />
+                  </div>
                 </SwiperSlide>
               );
             })}
@@ -888,16 +909,24 @@ const ProjectCard: React.FC<{ project: Project; isExpanded?: boolean }> = ({
 
       {/* Content Section */}
       <div
-        className="w-full  md:w-1/2 h-[195px] md:h-full flex flex-col justify-center p-5 lg:px-10 space-y-3 overflow-hidden"
+        className="w-full project-content  md:w-1/2 h-[195px] md:h-full flex flex-col justify-center p-5 lg:px-10 space-y-3 overflow-hidden antialiased"
+        // style={{
+        //   // animation: isExpanded
+        //   //   ? "fadeInContent 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards"
+        //   //   : "fadeOutContent 0.45s cubic-bezier(0.4, 0, 1, 1) forwards",
+        //   opacity: isExpanded ? 1 : 0,
+        //   visibility: isExpanded ? "visible" : "hidden",
+        //   transition: isExpanded
+        //     ? "opacity 0.05s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, visibility 0s 0s"
+        //     : "opacity 0.05s cubic-bezier(0.4, 0, 1, 1), visibility 0s 0.2s",
+        //   willChange: "opacity",
+        //   //transform: `scaleX(${isExpanded ? 1 : 0.25})`, // Counter-scale based on parent
+        //   //transformOrigin: "left center",
+        // }}
+
         style={{
-          // animation: isExpanded
-          //   ? "fadeInContent 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards"
-          //   : "fadeOutContent 0.45s cubic-bezier(0.4, 0, 1, 1) forwards",
-          opacity: isExpanded ? 1 : 0,
+          opacity: 0,
           visibility: isExpanded ? "visible" : "hidden",
-          transition: isExpanded
-            ? "opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, visibility 0s 0s"
-            : "opacity 0.25s cubic-bezier(0.4, 0, 1, 1), visibility 0s 0.2s",
         }}
       >
         <LargeText variant="large-28-caps" className="">

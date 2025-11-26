@@ -8,7 +8,7 @@ const SustainabilityHeader = () => {
       caption="Services / Sustainability & Innovation"
       imageSrc="/services/sustainability/home.png"
       imageAlt="construction"
-      theme="light"
+      // theme="light"
     >
       Building for a sustainable tomorrow through {""}
       <Heading variant="playfair" level="span" className="inline">

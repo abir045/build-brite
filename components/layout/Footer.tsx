@@ -143,9 +143,15 @@ export default function Footer() {
           </div>
         </div>
         {/* logo div */}
-        <div className="flex items-center gap-[30px] mt-14 lg:mt-10">
-          <Image src="/header/logo.svg" width={60} height={60} alt="logo" />
-          <span className="text-[62.7px] lg:text-[75px] leading-[150%] tracking-[1.17px] text-white">
+        <div className="flex items-center gap-[25px] md:gap-[30px] mt-14 lg:mt-10">
+          <Image
+            src="/header/logo.svg"
+            width={60}
+            height={60}
+            className="object-cover aspect-30/30 md:aspect-[60/60]"
+            alt="logo"
+          />
+          <span className="text-[50px] lg:text-[75px] leading-[150%] tracking-[1.17px] text-white">
             buildbrite
           </span>
         </div>

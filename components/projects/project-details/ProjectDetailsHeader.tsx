@@ -1,26 +1,29 @@
 import BodyText from "@/components/globals/typography/BodyText";
 import LargeText from "@/components/globals/typography/LargeText";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const ProjectDetailsHeader = () => {
   return (
     <section className="bg-white" data-theme="light">
       <div className="container-custom flex flex-col pt-[116px] pb-10">
-        <button className="flex items-center gap-4 bg-transparent">
-          <Image
-            src="/project-details/left-green-arrow.svg"
-            alt="left nav"
-            width={24}
-            height={24}
-          />
+        <Link href={`/projects`}>
+          <button className="flex cursor-pointer items-center gap-4 bg-transparent">
+            <Image
+              src="/project-details/left-green-arrow.svg"
+              alt="left nav"
+              width={24}
+              height={24}
+            />
 
-          <BodyText variant="body-sm" className="text-dark1">
-            Back to all projects
-          </BodyText>
-        </button>
+            <BodyText variant="body-sm" className="text-dark1">
+              Back to all projects
+            </BodyText>
+          </button>
+        </Link>
 
-        <div className="relative mt-12 aspect-[1360/580]">
+        <div className="relative mt-12  aspect-[1360/580]">
           <Image
             src="/project-details/project-header.jpg"
             alt="header image"
@@ -37,7 +40,7 @@ const ProjectDetailsHeader = () => {
             />
           </div>
 
-          <div className="absolute left-12 bottom-12">
+          <div className="absolute left-12 bottom-6 md:bottom-12">
             <div className="bg-primary px-3 py-[5.5px] rounded max-w-[99px]">
               <BodyText variant="body-sm" className="text-dark1">
                 Residential

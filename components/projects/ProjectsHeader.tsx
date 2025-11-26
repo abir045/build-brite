@@ -4,7 +4,7 @@ import Heading from "../globals/typography/Heading";
 
 const ProjectsHeader = () => {
   return (
-    <SectionHeader caption="Our projects">
+    <SectionHeader caption="Our projects" data-theme="light">
       Discover our portfolio of landmark projects that {""}
       <Heading variant="playfair" level="span" className="inline">
         shape skylines and communities worldwide{" "}

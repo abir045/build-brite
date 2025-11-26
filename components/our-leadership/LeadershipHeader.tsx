@@ -26,7 +26,7 @@ export default function LeadershipHeader() {
 
         {/* image grid */}
 
-        <div className="flex-col flex gap-8 items-center md:flex-row md:justify-between   md:p-10 p-4 mt-8 md:mt-14 h-auto md:max-h-[530px] bg-dark1">
+        <div className="flex-col flex gap-8 items-center lg:flex-row lg:justify-between   lg:p-10 p-4 mt-8 md:mt-14 h-auto lg:max-h-[530px] bg-dark1">
           {/* left */}
           <div className="h-auto md:h-[450px]  md:px-[85.5px] aspect-square  w-full">
             <Image

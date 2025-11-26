@@ -60,7 +60,7 @@ export default function History() {
           </div>
         </div>
         {/* stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-[60px] md:mt-[100px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-[60px] md:mt-[100px]">
           {historyData.stats.map((stat, index) => (
             <div key={index} className="flex items-center gap-4">
               <div className="bg-dark1 w-12 h-12 rounded-[2px] flex items-center justify-center">

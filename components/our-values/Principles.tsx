@@ -63,7 +63,7 @@ const coreValuesData: CoreValue[] = [
 
 export default function Principles() {
   return (
-    <section className="bg-white">
+    <section className="bg-white" data-theme="dark">
       <div className="container-custom py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-2">
           {coreValuesData.map((value, index) => {

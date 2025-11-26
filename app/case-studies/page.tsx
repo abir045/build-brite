@@ -1,4 +1,5 @@
 import CaseStudiesHeader from "@/components/case-studies/CaseStudiesHeader";
+import CTA from "@/components/case-studies/CTA";
 import DigitalTransformation from "@/components/case-studies/DigitalTransformation";
 import SustainableMaterials from "@/components/case-studies/SustainableMaterials";
 import ZeroHarm from "@/components/case-studies/ZeroHarm";
@@ -10,6 +11,7 @@ export default function CaseStudies() {
       <DigitalTransformation />
       <ZeroHarm />
       <SustainableMaterials />
+      <CTA />
     </>
   );
 }

@@ -11,14 +11,14 @@ const ServiceHeader = () => {
           <SectionCaption text="Our services" className="text-tertiary" />
 
           <Heading
-            variant="playfair"
+            variant="jakarta"
             level="h2"
             className="text-dark1 max-w-[780px]"
           >
-            Delivering excellence{" "}
-            <Heading variant="jakarta" level="span">
-              from planning to completion
+            <Heading variant="playfair" level="span">
+              Delivering excellence{" "}
             </Heading>
+            from planning to completion
           </Heading>
         </div>
 

@@ -4,7 +4,7 @@ import Heading from "../globals/typography/Heading";
 
 const CaseStudiesHeader = () => {
   return (
-    <SectionHeader caption="Case studies">
+    <SectionHeader caption="Case studies" data-theme="light">
       Dive deep into our most {""}
       <Heading variant="playfair" level="span" className="inline">
         impactful innovations and success stories{" "}

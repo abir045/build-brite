@@ -100,7 +100,7 @@ const NewsInsights = () => {
               />
             </button>
 
-            <button className="mt-[106px] bg-primary  items-center gap-2.5 px-4 py-2.5 self-start rounded hidden md:flex">
+            <button className="mt-[106px] transition-colors duration-300 group bg-primary text-dark1 hover:bg-dark1 hover:text-primary items-center gap-2.5 px-4 py-2.5 self-start rounded hidden md:flex">
               <BodyText variant="navigation">View all news & insights</BodyText>
 
               <Image
@@ -108,6 +108,7 @@ const NewsInsights = () => {
                 width={16}
                 height={10}
                 alt="arrow"
+                className="group-hover:invert"
               />
             </button>
           </div>
@@ -144,7 +145,7 @@ const NewsInsights = () => {
               </div>
             ))}
           </div>
-          <button className="mt-8 bg-primary  items-center justify-between px-4 py-2.5  rounded flex md:hidden">
+          <button className="mt-8 bg-primary group hover:text-primary hover:bg-dark1 text-dark1 transition-colors duration-300 items-center justify-between px-4 py-2.5  rounded flex md:hidden">
             <BodyText variant="navigation">View all news & insights</BodyText>
 
             <Image
@@ -152,6 +153,7 @@ const NewsInsights = () => {
               width={16}
               height={10}
               alt="arrow"
+              className="group-hover:invert"
             />
           </button>
         </div>

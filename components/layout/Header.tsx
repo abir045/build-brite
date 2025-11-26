@@ -370,29 +370,29 @@ export default function Header() {
   //   return () => observer.disconnect();
   // }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the section with the largest visible area
-        const mostVisible = entries.reduce((prev, curr) =>
-          curr.intersectionRatio > prev.intersectionRatio ? curr : prev
-        );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       // Find the section with the largest visible area
+  //       const mostVisible = entries.reduce((prev, curr) =>
+  //         curr.intersectionRatio > prev.intersectionRatio ? curr : prev
+  //       );
 
-        if (mostVisible.isIntersecting) {
-          const theme = mostVisible.target.getAttribute("data-theme");
-          const id = mostVisible.target.getAttribute("id");
-          console.log(`🎯 Active section: ${id}, theme: ${theme}`);
-          if (theme) setIsDark(theme === "light");
-        }
-      },
-      { threshold: [0.2] } // multiple thresholds for smoother tracking
-    );
+  //       if (mostVisible.isIntersecting) {
+  //         const theme = mostVisible.target.getAttribute("data-theme");
+  //         const id = mostVisible.target.getAttribute("id");
+  //         console.log(`🎯 Active section: ${id}, theme: ${theme}`);
+  //         if (theme) setIsDark(theme === "light");
+  //       }
+  //     },
+  //     { threshold: [0.2] } // multiple thresholds for smoother tracking
+  //   );
 
-    const themeSections = document.querySelectorAll("[data-theme]");
-    themeSections.forEach((section) => observer.observe(section));
+  //   const themeSections = document.querySelectorAll("[data-theme]");
+  //   themeSections.forEach((section) => observer.observe(section));
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
   useEffect(() => {
     let lastTheme: string | null = null;
@@ -493,7 +493,7 @@ export default function Header() {
                   about
                 </BodyText>
               </Link>
-              <Link href="/services">
+              <Link href="/service">
                 <BodyText variant="navigation" className="text-[#364153]">
                   services
                 </BodyText>
@@ -517,7 +517,7 @@ export default function Header() {
 
             <Button
               variant="default"
-              className="rounded-[4px] px-6 py-2.5 bg-[#0A181B] text-white"
+              className="rounded px-6 py-2.5 bg-dark1  text-white hover:bg-white  transition-colors duration-300 hover:text-dark1"
             >
               <BodyText variant="navigation">contact us</BodyText>
             </Button>
@@ -559,10 +559,10 @@ export default function Header() {
         {/* Mobile Menu Dropdown */}
         {menuOpen && (
           <div className="mt-4 flex flex-col items-center gap-4 bg-[#E4E4E4]/90 backdrop-blur-[10px] py-4 rounded-lg lg:hidden">
-            <Link href="/about" onClick={() => setMenuOpen(false)}>
+            <Link href="/about-us" onClick={() => setMenuOpen(false)}>
               <NavigationText text="about" className="text-[#364153]" />
             </Link>
-            <Link href="/services" onClick={() => setMenuOpen(false)}>
+            <Link href="/service" onClick={() => setMenuOpen(false)}>
               <NavigationText text="services" className="text-[#364153]" />
             </Link>
             <Link href="/projects" onClick={() => setMenuOpen(false)}>

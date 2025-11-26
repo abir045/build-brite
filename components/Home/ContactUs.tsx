@@ -40,8 +40,11 @@ const ContactUs = () => {
                 today.
               </BodyText>
 
-              <button className="rounded flex px-4 py-2.5 items-center gap-[38px] justify-between bg-primary mt-8 md:mt-10 md:self-start">
-                <BodyText variant="navigation" className="text-dark1">
+              <button className="rounded flex px-4 py-2.5 items-center gap-[38px] justify-between text-dark1 bg-primary hover:text-primary hover:bg-dark1 mt-8 md:mt-10 md:self-start transition-colors duration-300">
+                <BodyText
+                  variant="navigation"
+                  // className="text-dark1"
+                >
                   Contact Us Today
                 </BodyText>
 

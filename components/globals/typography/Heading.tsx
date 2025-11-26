@@ -18,7 +18,7 @@ interface HeadingProps {
 const jakartaStyles: Record<HeadingLevel, string> = {
   h1: "text-[40px] md:text-[60px] leading-[100%] tracking-[-3px] font-medium",
   h2: "text-[32px] md:text-[48px] leading-[100%] tracking-[-1px] font-medium",
-  h3: "text-[32px] md:text-[40px] leading-[100%] tracking-[-1px] font-medium",
+  h3: "text-[24px] md:text-[40px] leading-[100%] tracking-[-1px] font-medium",
   h4: "text-[24px] md:text-[36px] leading-[100%] tracking-[-2px] font-medium",
   span: "text-[32px] md:text-[48px] leading-[100%] tracking-[-1px] font-medium",
 };

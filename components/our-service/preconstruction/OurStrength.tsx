@@ -121,7 +121,7 @@ const OurStrength = () => {
         </Heading>
 
         {/* grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 md:mt-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 lg:mt-14">
           {serviceDetailsData.map((item, index) => (
             <div
               key={index}
@@ -167,7 +167,7 @@ const OurStrength = () => {
                   width={432}
                   height={348}
                   alt={item.title}
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
             </div>

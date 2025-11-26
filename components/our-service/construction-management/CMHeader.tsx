@@ -10,7 +10,7 @@ const CMHeader: React.FC = () => {
       caption="Services / Construction management"
       imageSrc="/services/management/shipyard.png"
       imageAlt="construction"
-      theme="light"
+      // theme="light"
     >
       <Heading variant="playfair" level="span" className="inline">
         Expert execution with unwavering{" "}

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import BodyText from "../globals/typography/BodyText";
 import Image from "next/image";
 import LargeText from "../globals/typography/LargeText";
+import Link from "next/link";
 
 interface ProjectTab {
   id: number;
@@ -126,14 +127,14 @@ const ProjectGrid: React.FC = () => {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              className={`px-5 py-2.5 rounded ${
+              className={`px-5 py-2.5 rounded hover:bg-dark1 group transition-colors duration-300 ${
                 activeCategory === tab.value ? "bg-dark1" : "bg-[#F1F1F1]"
               }`}
               onClick={() => setActiveCategory(tab.value)}
             >
               <BodyText
                 variant="body-sm"
-                className={`${
+                className={`group-hover:text-primary ${
                   activeCategory === tab.value
                     ? "text-primary leading-[130%] font-bold"
                     : "text-dark1"
@@ -149,12 +150,14 @@ const ProjectGrid: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {filteredProjects.map((project) => (
             <div key={project.id} className="relative w-full">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={432}
-                height={500}
-              />
+              <Link href={`/projects/${project.id}`}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={432}
+                  height={500}
+                />
+              </Link>
 
               <div className="absolute top-6 left-6 bg-primary px-3 py-[5.5px] rounded">
                 <BodyText variant="body-sm" className="text-dark1">

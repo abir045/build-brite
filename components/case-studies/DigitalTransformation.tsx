@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import BodyText from "../globals/typography/BodyText";
 import Heading from "../globals/typography/Heading";
+import Link from "next/link";
 
 export interface ArticleCard {
   id: string;
@@ -79,17 +80,19 @@ const DigitalTransformation: React.FC = () => {
               ))}
             </div>
 
-            <button className="flex items-center gap-4 bg-transparent py-2.5 rounded mt-6">
-              <BodyText variant="navigation" className="text-dark1">
-                Read full article
-              </BodyText>
-              <Image
-                src="/globals/right-primary.svg"
-                alt="icon"
-                width={20}
-                height={20}
-              />
-            </button>
+            <Link href={`/case-studies/${articleData.id}`}>
+              <button className="flex items-center gap-4 cursor-pointer bg-transparent py-2.5 rounded mt-6">
+                <BodyText variant="navigation" className="text-dark1">
+                  Read full article
+                </BodyText>
+                <Image
+                  src="/globals/right-primary.svg"
+                  alt="icon"
+                  width={20}
+                  height={20}
+                />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
